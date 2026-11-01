@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpsviz"
+version = "0.1.0"
+description = "Visualize NMEA GPS traces on an interactive map (HTML) and export to PNG"
+requires-python = ">=3.10"
+dependencies = [
+    "folium>=0.17",
+    "branca>=0.7",
+    "pillow>=10.0",
+    "pynmea2>=1.19",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+png = ["selenium>=4.20"]
+
+[project.scripts]
+gpsviz = "gpsviz.cli:main"
+
+[tool.setuptools]
+packages = ["gpsviz"]

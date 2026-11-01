@@ -1,0 +1,28 @@
+# gpsviz configuration - every option with its default.
+# Use with:  gpsviz output.nmea --config config.example.yaml
+# CLI flags override values set here. Unknown keys are rejected.
+
+speed_colored_line: false   # color the track by speed (false -> single-color line)
+line_color: "#ff00ff"      # line color when speed_colored_line is false
+line_weight: 5             # line width in px
+colormap: viridis          # viridis | plasma | inferno | magma | ylorrd | rdylgn
+start_end_markers: true    # green start / red end markers
+fix_popups: true           # small dot per fix with a popup (time, speed, course, sats)
+heading_arrows: true       # triangles pointing in the direction of travel
+arrow_every_n: 3           # draw an arrow on every N-th fix
+fit_bounds: true           # zoom the map to the whole track
+open_browser: true         # serve the HTML on localhost + open the browser (Ctrl+C to stop)
+serve_port: 0              # local server port; 0 = any free port
+
+basemap:
+  default: OpenStreetMap   # any folium/xyzservices tile name
+  extra_layers:            # switchable in the HTML (PNG shows only the default)
+    - OpenTopoMap
+    - Esri.WorldImagery
+  layer_switcher: true     # add extra layers + layer control
+
+png:
+  enabled: true            # export PNG via headless Chrome
+  width: 1600
+  height: 1000
+  wait_s: 2.0              # seconds to wait for tiles before the screenshot
